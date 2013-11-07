@@ -1,10 +1,5 @@
 $(function() {
 
-  var layout = {};
-  var players = ['0', '1'];
-  var maxX = $('.connect-four tbody tr:first td').length;
-  var maxY = $('.connect-four tbody tr').length;
-
   var coords = [
     { x:1, y:0 },
     { x:-1, y:0 },
@@ -16,27 +11,10 @@ $(function() {
     { x:-1, y:-1 }
   ];
 
-  console.log(maxX, maxY);
-
-  var data = $('.connect-four tbody .chip').map(function() {
-    return $(this).data('loc')
-  }).get();
-
-  $.each(data, function(index, value) {
-    $.each(players, function(index, player) {
-      layout[player + '-' + value] = [];
-    })
-  })
-
-  console.log(layout);
-
-
   // Helpers
   function changePlayer() {
     var player = $('.connect-four').data('player');
-
     $('.connect-four').data('player', (player+1)%2);
-
   }
 
   function addChip(column) {
@@ -95,6 +73,7 @@ $(function() {
 
       var matches = check(coord);
       if (matches.length >= 4) {
+
         // pass off to winner function
         winnersCircle(matches);
       }
@@ -115,9 +94,9 @@ $(function() {
     $('.connect-four thead .winner').show();
 
     $.each(matches, function(i, elem) {
-      console.log(elem);
       elem.children('.chip').addClass('winner');
     })
+
   }
 
 
@@ -164,9 +143,7 @@ $(function() {
 
   }).on('mouseout', function(event) {
     var $this = $(this);
-
     $this.removeClass().addClass('chip');
-
   });
 
   $('.connect-four .restart').on('click', function() {
