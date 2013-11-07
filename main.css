@@ -1,0 +1,92 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: helvetica, san-serif;
+  background: #123882;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* table */
+table.connect-four {
+  box-shadow: 0 32px 35px -20px #222;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+table.connect-four thead,
+table.connect-four tfoot {
+  background: #f3f3f3;
+  color: #333;
+  text-align: center;
+}
+
+table.connect-four tfoot button {
+  background-color: #123882;
+  border: 0;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+table.connect-four tbody {
+  background: #FBDE37;
+  border: 2px solid #E5CA44;
+}
+
+table.connect-four td {
+  height: 100px;
+  padding: 10px;
+  width: 100px;
+}
+
+table.connect-four .chip {
+  background: #fff;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #E5CA44;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+}
+
+table.connect-four tbody .chip {
+  box-shadow: 0 0 22px 0px #fff;
+}
+
+table.connect-four thead .chip {
+  cursor: pointer;
+}
+
+table.connect-four .chip.p0 {
+  background: #f00;
+  box-shadow: 0 0 12px 0px #000 inset;
+}
+
+table.connect-four .chip.p1 {
+  background: #333;
+  box-shadow: 0 0 12px 0px #000 inset;
+}
+
+table.connect-four .chip.winner {
+  -webkit-animation: winner 1s ease-out;
+  box-shadow: 0 0 0 4px #FFF inset;
+}
+
+@-webkit-keyframes winner {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    90% {-webkit-transform: scale(1.2, 1.2);}
+    100% {-webkit-transform: scale(1,1);}
+}
