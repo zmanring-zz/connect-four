@@ -22,8 +22,12 @@ $(function() {
     });
   }
 
-  CONNECTFOUR.changePlayer = function() {
-    $('.connect-four').data('player', (CONNECTFOUR.getPlayer()+1)%2);
+  CONNECTFOUR.changePlayer = function(playerId) {
+    var newPlayer = (playerId+1)%2 || (CONNECTFOUR.getPlayer()+1)%2;
+
+    $('.connect-four').data('player', newPlayer);
+
+    return newPlayer;
   }
 
   CONNECTFOUR.checkForConnectFour = (function() {
