@@ -93,8 +93,10 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', []);
+  grunt.registerTask('build', ['sass', 'cssc', 'cssmin', 'htmlhint', 'copy:indexHtml', 'uglify', 'jasmine'])
   grunt.registerTask('buildcss', ['sass', 'cssc', 'cssmin']);
   grunt.registerTask('buildhtml', ['htmlhint', 'copy:indexHtml']);
   grunt.registerTask('buildjs', ['uglify', 'jasmine']);
+
 
 };
